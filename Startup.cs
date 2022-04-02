@@ -29,8 +29,9 @@ namespace Liblistapp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IGameRepository, GameRepository>();
-            services.AddDbContext<GameContext>(o => o.UseSqlite("Data source=games.db"));
+            services.AddScoped<IMainRepository, MainRepository>();
+            services.AddDbContext<MainContext>(t => t.UseSqlite("Data source=GameList.db"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
