@@ -36,7 +36,7 @@ namespace Liblistapp.Repositories
 
         public async Task<Game> Get(int id)
         {
-            return await _context.Games.FindAsync();
+            return await _context.Games.FindAsync(id);
         }
 
         public async Task Update(Game game)
