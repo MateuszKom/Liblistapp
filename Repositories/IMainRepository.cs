@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Liblistapp.Repositories
 {
-    public interface IGameRepository
+    public interface IMainRepository
     {
-        Task<IEnumerable<Game>> Get();
-        Task<Game> Get(int id);
-        Task<Game> Create(Game game);
-        Task Update(Game game);
+        Task<IEnumerable<Main>> Get();
+        Task<Main> Get(int id);
+        Task<Main> Create(Main main);
+        Task Update(Main main);
         Task Delete(int id);
     }
 }
