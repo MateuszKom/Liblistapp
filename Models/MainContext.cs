@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Liblistapp.Models
 {
-    public class GameContext : DbContext
+    public class MainContext : DbContext
     {
-        public GameContext(DbContextOptions<GameContext> options)
-            :base(options)
+        public MainContext(DbContextOptions<MainContext> options)
+            : base(options)
         {
             Database.EnsureCreated();
         }
-
-        public DbSet<Game> Games { get; set; }
+        public DbSet<Main> MainInfo { get; set; }
     }
 }
