@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Liblistapp.Repositories
 {
-    public class MainRepository : IMainRepository
+    public class GameRepository : IGameRepository
     {
-        private readonly MainContext _secondcontext;
-        public MainRepository(MainContext secondcontext)
+        private readonly GameContext _secondcontext;
+        public GameRepository(GameContext secondcontext)
         {
             _secondcontext = secondcontext;
         }
-        public async Task<Main> Create(Main main)
+        public async Task<Game> Create(Game main)
         {
-            _secondcontext.MainInfo.Add(main);
+            _secondcontext.GameInfo.Add(main);
             await _secondcontext.SaveChangesAsync();
 
             return main;
@@ -24,22 +24,22 @@ namespace Liblistapp.Repositories
 
         public async Task Delete(int id)
         {
-            var mainToDelete = await _secondcontext.MainInfo.FindAsync(id);
-            _secondcontext.MainInfo.Remove(mainToDelete);
+            var mainToDelete = await _secondcontext.GameInfo.FindAsync(id);
+            _secondcontext.GameInfo.Remove(mainToDelete);
             await _secondcontext.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Main>> Get()
+        public async Task<IEnumerable<Game>> Get()
         {
-            return await _secondcontext.MainInfo.ToListAsync();
+            return await _secondcontext.GameInfo.ToListAsync();
         }
 
-        public async Task<Main> Get(int id)
+        public async Task<Game> Get(int id)
         {
-            return await _secondcontext.MainInfo.FindAsync(id);
+            return await _secondcontext.GameInfo.FindAsync(id);
         }
 
-        public async Task Update(Main main)
+        public async Task Update(Game main)
         {
             _secondcontext.Entry(main).State = EntityState.Modified;
             await _secondcontext.SaveChangesAsync();

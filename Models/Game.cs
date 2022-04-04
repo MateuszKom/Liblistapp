@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Liblistapp.Models
 {
-    public class Main
+    public class Game
     {   public int ID { get; set; }
         public string Name { get; set; }
         public string Publisher { get; set; }
