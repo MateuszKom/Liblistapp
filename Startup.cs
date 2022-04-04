@@ -32,6 +32,9 @@ namespace Liblistapp
             services.AddScoped<IGameRepository, GameRepository>();
             services.AddDbContext<GameContext>(t => t.UseSqlite("Data source=GameList.db"));
 
+            services.AddScoped<IRPGGamesRepository, RPGGamesRepository>();
+            services.AddDbContext<RPGGamesContext>(o => o.UseSqlite("Data source=RPGGameList.db"));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
