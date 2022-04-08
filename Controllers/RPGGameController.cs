@@ -49,10 +49,18 @@ namespace Liblistapp.Controllers
             return NoContent();
         }
 
-        [HttpGet("{RPGElements}")]
-        public async Task<IEnumerable<RPGGames>> GetRPGElements(int RPGElements)
+        [Route("getrpgelements")]
+        [HttpGet]
+        public async Task<IEnumerable<RPGGames>> GetByRPGElements(int sortbyrpgelements)
         {
-            return (IEnumerable<RPGGames>)await _rpggameRepository.Get(RPGElements);
+            return await _rpggameRepository.GetRPGElements(sortbyrpgelements);
+        }
+
+        [Route("getbygenre/{genre}")]
+        [HttpGet]
+        public async Task<RPGGames> GetByGenre(string genre)
+        {
+            return await _rpggameRepository.GetRPGGenre(genre);
         }
     }
 }
