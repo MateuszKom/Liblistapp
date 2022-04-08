@@ -39,14 +39,14 @@ namespace Liblistapp.Repositories
             return await _rpggameContext.RPGGamesInfo.FindAsync(id);
         }
 
-        public async Task<IEnumerable<RPGGames>> GetRPGElements(int RPGElements)
+        public async Task<IEnumerable<RPGGames>> GetRPGElements(int getrpgelements)
         {
-            return (IEnumerable<RPGGames>)await _rpggameContext.RPGGamesInfo.FindAsync(RPGElements);
+            return await _rpggameContext.RPGGamesInfo.OrderBy(a => a.RPGElements).ToListAsync();
         }
-
-        public async Task<IEnumerable<RPGGames>> GetRPGGenre(int Genre)
+         
+        public async Task<RPGGames> GetRPGGenre(string genre)
         {
-            return (IEnumerable<RPGGames>)await _rpggameContext.RPGGamesInfo.FindAsync(Genre);
+            return await _rpggameContext.RPGGamesInfo.FindAsync(genre);
         }
 
         public async Task Update(RPGGames rpggames)

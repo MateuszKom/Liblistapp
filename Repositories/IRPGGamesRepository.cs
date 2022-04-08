@@ -14,6 +14,6 @@ namespace Liblistapp.Repositories
         Task Update(RPGGames rpggames);
         Task Delete(int id);
         Task<IEnumerable<RPGGames>> GetRPGElements(int RPGElements);
-        Task<IEnumerable<RPGGames>> GetRPGGenre(int Genre);
+        Task<RPGGames> GetRPGGenre(string Genre);
     }
 }
